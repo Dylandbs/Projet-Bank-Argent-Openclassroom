@@ -1,12 +1,20 @@
 import { useState } from "react";
+import { SetCookie } from "../cookieUtils";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../../features/authSlice";
 import InputField from "./InputField";
 import CheckboxField from "./CheckboxField";
-
 
 const FormSignIn = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
   const [Checkbox, setCheckbox] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const urlApiLogin = "http://localhost:3001/api/v1/user/login";
+  const urlApiProfile = "http://localhost:3001/api/v1/user/profile";
 
   const handlecheck = () => setCheckbox((check) => !check);
 
@@ -19,6 +27,38 @@ const FormSignIn = () => {
     };
 
     console.log(userData);
+
+    try {
+      const response = await fetch(urlApiLogin, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      const token = data.body.token;
+      SetCookie("token", token, Checkbox ? 30 : null);
+      dispatch(login({ token }));
+
+      const profileResponse = await fetch(urlApiProfile, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!profileResponse.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const profileData = await profileResponse.json();
+      navigate(`/User/${profileData.body.id}`);
+    } catch (error) {
+      console.error("There was a problem with the fetch operation:", error);
+    }
   };
 
   return (

@@ -13,6 +13,13 @@ body {
   min-height: 100vh;
 }
 
+/* Ajoutez ceci à main.css */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Prend toute la hauteur de l'écran */
+}
+
 .main {
   flex: 1;
 }
@@ -24,7 +31,7 @@ body {
 .main.bg-dark {
   display: flex;          
   flex-direction: column; 
-  min-height: calc(93vh - 80px);
+  /* min-height: calc(93vh - 80px); */
 }
 
 .main-nav {
@@ -199,6 +206,7 @@ body {
   display: flex;
   justify-content: center;
   border-top: 2px solid #ccc;
+  margin-top: auto;
   padding: 2rem 0 1.5rem;
 }
 

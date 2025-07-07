@@ -2,9 +2,9 @@ import Header from "../components/header/Header";
 import FormSignIn from "../components/SignInForm/FormSignin";
 import Footer from "../components/Footer";
 
-const sign_in = () => {
+const SignIn = () => {
   return (
-    <>
+    <div className="page-container">
       <Header />
       <main className="main bg-dark">
         <section className="sign-in-content">
@@ -13,9 +13,9 @@ const sign_in = () => {
           <FormSignIn />
         </section>
       </main>
-    <Footer />
-    </>
+      <Footer />
+    </div>
   );
 };
 
-export default sign_in;
+export default SignIn;

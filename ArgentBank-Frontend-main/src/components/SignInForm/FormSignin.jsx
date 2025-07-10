@@ -3,20 +3,23 @@ import { SetCookie } from "../cookieUtils";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/authSlice";
+import { useSelector } from "react-redux";
+import { toggleChecked } from "../../features/hiddenSlice";
+import { setDataUser } from "../../features/authSlice";
 import InputField from "./InputField";
 import CheckboxField from "./CheckboxField";
 
 const FormSignIn = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
-  const [Checkbox, setCheckbox] = useState(false);
-  const navigate = useNavigate();
+  const Checkbox = useSelector((state) => state.hidden.checked);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const urlApiLogin = "http://localhost:3001/api/v1/user/login";
   const urlApiProfile = "http://localhost:3001/api/v1/user/profile";
 
-  const handlecheck = () => setCheckbox((check) => !check);
+  const handleCheck = () => dispatch(toggleChecked());
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,10 +59,16 @@ const FormSignIn = () => {
       }
       const profileData = await profileResponse.json();
       navigate(`/User/${profileData.body.id}`);
+      dispatch(setDataUser(profileData.body));
+      if (Checkbox) {
+        dispatch(toggleChecked());
+      }
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
     }
   };
+
+
 
   return (
     <form onSubmit={handleSubmit} className="sign-in-form">
@@ -70,6 +79,7 @@ const FormSignIn = () => {
         label="Username"
         value={Username}
         onChange={(e) => setUsername(e.target.value)}
+        className="input-field"
       />
       <InputField
         type="text"
@@ -78,12 +88,13 @@ const FormSignIn = () => {
         label="Password"
         value={Password}
         onChange={(e) => setPassword(e.target.value)}
+        className="input-field"
       />
       <CheckboxField
         id="remember-me"
         label="Remember me"
         checked={Checkbox}
-        onChange={handlecheck}
+        onChange={handleCheck}
       />
       <button type="submit" className="sign-in-button">
         Sign In

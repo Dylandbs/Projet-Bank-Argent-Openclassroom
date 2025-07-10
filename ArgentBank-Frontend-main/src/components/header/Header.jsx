@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Logo from "./logo";
 import NavItems from "./NavItems";
 import { useDispatch, useSelector } from "react-redux";
-import { logout, syncCookies } from "../../features/authSlice";
+import { logout, syncCookie } from "../../features/authSlice";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -12,14 +12,14 @@ const Header = () => {
 
 
   useEffect(() => {
-    dispatch(syncCookies());
+    dispatch(syncCookie());
   }, [dispatch]);
 
   const handleClick = (e) => {
     if (isAuthenticated) {
       e.preventDefault();
       dispatch(logout());
-      dispatch(syncCookies()); 
+      dispatch(syncCookie()); 
       navigate("/");
     }
   };

@@ -43,7 +43,7 @@ const Home = () => {
   ];
 
   return (
-    <div>
+    <div className="page-container">
       <Header />
       <main>
         <HeroBanner contents={bannerContents} />

@@ -1,4 +1,4 @@
-const InputField = ({ type, aria, label, id, value, onChange }) => {
+const InputField = ({ type, aria, label, id, value, onChange, className, disabled = false}) => {
   return (
     <div className="input-wrapper">
       <label htmlFor={id} aria-label={aria}>
@@ -9,7 +9,8 @@ const InputField = ({ type, aria, label, id, value, onChange }) => {
         id={id}
         value={value}
         onChange={onChange}
-        className="input-field"
+        className={className}
+        disabled={disabled}
       />
     </div>
   );

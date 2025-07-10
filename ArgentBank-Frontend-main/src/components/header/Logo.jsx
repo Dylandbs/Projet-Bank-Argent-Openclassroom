@@ -8,7 +8,7 @@ const Logo = () => (
   >
     <img
       className="main-nav-logo-image"
-      src="./img/argentBankLogo.png"
+      src="/img/argentBankLogo.png"
       alt=""
     />
   </Link>

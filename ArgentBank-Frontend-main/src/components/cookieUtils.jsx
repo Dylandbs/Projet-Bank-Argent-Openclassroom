@@ -1,13 +1,12 @@
 export const SetCookie = (name, value, days = null) => {
-  let expires;
+  let cookieValue = `${name}=${encodeURIComponent(value)}; path=/`;
+
   if (days !== null) {
-    expires = new Date(Date.now() + days * 864e5).toUTCString();
-  } else {
-    expires = "";
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    cookieValue += `; expires=${expires}`;
   }
-  document.cookie = `${name}=${encodeURIComponent(
-    value
-  )}; expires=${expires}; path=/`;
+
+  document.cookie = cookieValue;
 };
 
 export const GetCookie = (name) => {

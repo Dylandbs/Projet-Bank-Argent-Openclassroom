@@ -1,0 +1,71 @@
+// Variables
+$primary-color: #00bc77;
+$secondary-color: #2c3e50;
+$dark-bg: #12002b;
+$white: #fff;
+$light-gray: #ccc;
+$black: #222;
+
+$font-family: Avenir, Helvetica, Arial, sans-serif;
+
+// Base Styles
+html {
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: $secondary-color;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+// Layout
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+}
+
+.bg-dark {
+  background-color: #5c5a5a;
+}
+
+// Navigation
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+
+  &-item {
+    text-decoration: none;
+    margin-right: 0.5rem;
+    font-weight: bold;
+    color: $secondary-color;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+
+  &-logo {
+    display: flex;
+    align-items: center;
+
+    &-image {
+      max-width: 100%;
+      width: 200px;
+    }
+  }
+}
+

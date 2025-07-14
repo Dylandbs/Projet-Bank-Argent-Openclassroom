@@ -5,6 +5,7 @@ const hiddenSlice = createSlice({
   initialState: {
     hidden: false,
     checked: false,
+    accountId: null,
   },
   reducers: {
     toggleHidden: (state) => {
@@ -13,8 +14,12 @@ const hiddenSlice = createSlice({
     toggleChecked: (state) => {
       state.checked = !state.checked;
     },
+    toggleAccount: (state, action) => {
+      state.accountId = state.accountId === action.payload ? null : action.payload;
+    },
   },
 });
 
-export const { toggleHidden, toggleChecked } = hiddenSlice.actions;
+export const { toggleHidden, toggleChecked, toggleAccount } =
+  hiddenSlice.actions;
 export default hiddenSlice.reducer;

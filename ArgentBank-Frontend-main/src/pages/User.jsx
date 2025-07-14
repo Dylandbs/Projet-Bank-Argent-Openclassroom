@@ -1,6 +1,7 @@
 import Header from "../components/header/Header";
 import Footer from "../components/Footer";
 import ChangeUsername from "../components/ChangeUsername";
+import AccountList from "../components/AccounList";
 import { useParams } from "react-router-dom";
 
 const User = () => {
@@ -11,9 +12,8 @@ const User = () => {
     <div className="page-container">
       <Header />
       <main className="main">
-        <i className="fa fa-user-circle"></i>
-        <h1>User ID: {id}</h1>
         <ChangeUsername />
+        <AccountList />
       </main>
       <Footer />
     </div>

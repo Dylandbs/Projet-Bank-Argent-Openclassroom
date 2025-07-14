@@ -36,7 +36,6 @@ const ChangeUsername = () => {
       const data = await response.json();
       dispatch(editUsername({ userName: data.body.userName }));
       dispatch(toggleHidden());
-      
     } catch (error) {
       console.error("Error:", error);
     }
@@ -46,10 +45,10 @@ const ChangeUsername = () => {
     <div>
       {!hidden && (
         <>
-          <h1>
+          <h1 className="title-user">
             Welcome back
             <br />
-            {profilData.userName}
+            {profilData.userName}!
           </h1>
           <button className="edit-button" onClick={handleCheck}>
             Edit Name
@@ -58,24 +57,26 @@ const ChangeUsername = () => {
       )}
 
       {hidden && (
-        <form action="">
-          <h3>Edit user</h3>
-          <div className="input-container">
+        <form action="submit" className="edit-content">
+          <h3 className="title-edit">Edit user info</h3>
+          <div className="edit-container">
             <InputField
               type="text"
               id="userName"
               aria="userName"
-              label="Username"
+              label="User name:"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
-              className={"input-field"}
+              input_className={"edit-field-input"}
+              container_className={"edit-field-container"}
             />
             <InputField
               type="text"
               id="firstName"
               aria="first Name"
-              label="First Name"
-              className={"input-field"}
+              label="First Name:"
+              input_className={"edit-field-input"}
+              container_className={"edit-field-container"}
               value={profilData.firstName}
               onChange={null}
               disabled={true}
@@ -84,12 +85,16 @@ const ChangeUsername = () => {
               type="text"
               id="lastName"
               aria="lastName"
-              label="lastName"
-              className={"input-field"}
+              label="Last Name:"
+              input_className={"edit-field-input"}
+              container_className={"edit-field-container"}
               value={profilData.lastName}
               onChange={null}
               disabled={true}
             />
+          </div>
+
+          <div className="edit-button-container">
             <button type="submit" className="edit-button" onClick={handleClick}>
               Save
             </button>

@@ -79,7 +79,8 @@ const FormSignIn = () => {
         label="Username"
         value={Username}
         onChange={(e) => setUsername(e.target.value)}
-        className="input-field"
+        input_className="input-field"
+        container_className="input-wrapper"
       />
       <InputField
         type="text"
@@ -88,7 +89,8 @@ const FormSignIn = () => {
         label="Password"
         value={Password}
         onChange={(e) => setPassword(e.target.value)}
-        className="input-field"
+        input_className="input-field"
+        container_className="input-wrapper"
       />
       <CheckboxField
         id="remember-me"

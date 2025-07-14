@@ -1,6 +1,7 @@
-const HeroBanner = ({ contents }) => {
+const HeroBanner = ({ contents, img, alt }) => {
   return (
     <div className="hero">
+      <img src={img} alt={alt} className="hero-img"/>
       <section className="hero-content">
         {contents.map((content, index) => (
           <p className={content.class} key={index}>

@@ -1,0 +1,56 @@
+// layout/_header.scss
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+
+.main-nav-logo {
+  display: flex;
+  align-items: center;
+
+  &-image {
+    max-width: 100%;
+    width: 200px;
+  }
+}
+
+.main-nav-container {
+  .main-nav-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 0.5rem;
+    gap: 0.3rem;
+    color: inherit;
+    span {
+      transition: all 0.3s ease;
+    }
+    span:hover {
+      color: #42b983;
+    }
+
+    i {
+      transition: all 0.3s ease;
+    }
+    i:hover {
+      color: #42b983;
+    }
+
+    .fa-user-circle {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+  }
+}

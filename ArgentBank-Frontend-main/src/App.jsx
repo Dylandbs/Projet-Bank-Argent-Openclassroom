@@ -1,4 +1,4 @@
-import "../css/main.css";
+import "./assets/sass/main.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home"
 import Sign_in from "./pages/Sign_in";

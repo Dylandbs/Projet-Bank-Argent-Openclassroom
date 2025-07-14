@@ -1,6 +1,7 @@
 import Header from "../components/header/Header";
 import HeroBanner from "../components/HeroBanner";
 import ServiceFeature from "../components/ServiceFeature";
+import ImgBanner from "../../img/bank-tree.jpeg"
 import Footer from "../components/Footer";
 
 const Home = () => {
@@ -46,7 +47,10 @@ const Home = () => {
     <div className="page-container">
       <Header />
       <main>
-        <HeroBanner contents={bannerContents} />
+        <HeroBanner contents={bannerContents} 
+        img ={ImgBanner}
+        alt={"un arbre dans la foret"}
+        />
         <section className="features">
           <ServiceFeature contents={serviceContents} />
         </section>

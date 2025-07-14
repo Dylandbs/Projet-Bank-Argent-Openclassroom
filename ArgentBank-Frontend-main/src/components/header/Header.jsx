@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const profilData = useSelector((state) => state.auth.dataUser);
   const navigate = useNavigate();
-
 
   useEffect(() => {
     dispatch(syncCookie());
@@ -19,7 +19,7 @@ const Header = () => {
     if (isAuthenticated) {
       e.preventDefault();
       dispatch(logout());
-      dispatch(syncCookie()); 
+      dispatch(syncCookie());
       navigate("/");
     }
   };
@@ -30,7 +30,8 @@ const Header = () => {
       <NavItems
         text={isAuthenticated ? "Sign Out" : "Sign In"}
         label="Se connecter"
-        path={isAuthenticated ? "/" : "/Sign_in"}
+        path={isAuthenticated ? `/User/${profilData.id}` : "/Sign_in"}
+        auth={isAuthenticated}
         onclick={handleClick}
       />
     </nav>

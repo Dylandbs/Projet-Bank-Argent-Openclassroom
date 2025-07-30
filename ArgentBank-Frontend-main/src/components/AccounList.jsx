@@ -1,28 +1,24 @@
 import AccountCard from "./AccountCard";
+import AccountTransaction from "./AccountTransaction";
+import { useSelector } from "react-redux";
 
 const AccountList = () => {
-  const accounts = [
-    {
-      id: 1,
-      visite: "3500",
-      balance: "50,000.76",
-    },
-    {
-      id: 2,
-      visite: "3200",
-      balance: "20,500.76",
-    },
-  ];
+  const accountId = useSelector((state) => state.accounts.accountId);
+  const accounts = useSelector((state) => state.accounts.accounts);
 
   return (
     <div>
-      {accounts.map((account) => (
-        <AccountCard
-          key={account.id}
-          accountId={account.id} 
-          visite={account.visite}
-          balance={account.balance}
-        />
+      {accounts.map((acc) => (
+        <div key={acc.id}>
+          <AccountCard
+            accountId={acc.id}
+            visite={acc.visite}
+            balance={acc.balance}
+          />
+          {accountId === acc.id && (
+            <AccountTransaction transactions={acc.transactions} />
+          )}
+        </div>
       ))}
     </div>
   );

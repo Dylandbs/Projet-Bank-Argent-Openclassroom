@@ -4,7 +4,7 @@ import { toggleHidden } from "../features/hiddenSlice";
 import { useState } from "react";
 import { editUsername } from "../features/authSlice";
 import { GetCookie } from "./cookieUtils";
-import InputField from "./SignInForm/InputField";
+import InputField from "./AuthForm/InputField";
 
 const ChangeUsername = () => {
   const profilData = useSelector((state) => state.auth.dataUser);

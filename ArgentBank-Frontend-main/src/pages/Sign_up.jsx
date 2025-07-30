@@ -1,16 +1,16 @@
 import Header from "../components/header/Header";
-import FormSignIn from "../components/AuthForm/FormSignin";
+import FormSignUp from "../components/AuthForm/FormSignout";
 import Footer from "../components/Footer";
 
-const SignIn = () => {
+const SignUp = () => {
   return (
     <div className="page-container">
       <Header />
       <main className="main bg-dark">
-        <section className="sign-in-content">
+        <section className="sign-up-content">
           <i className="fa fa-user-circle"></i>
-          <h1>Sign In</h1>
-          <FormSignIn />
+          <h1>Sign Up</h1>
+          <FormSignUp />
         </section>
       </main>
       <Footer />
@@ -18,4 +18,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

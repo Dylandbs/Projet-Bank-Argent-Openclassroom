@@ -1,26 +1,25 @@
-import { toggleAccount } from "../features/hiddenSlice";
+import { setActiveAccount } from "../features/accountSlice";
 import { useSelector, useDispatch } from "react-redux";
 
-const AccountCards = ({ accountId, visite, balance }) => {
-  const account = useSelector((state) => state.hidden.accountId);
+const AccountCard = ({ accountId, visite, balance }) => {
+  const activeAccountId = useSelector((state) => state.accounts.accountId);
   const dispatch = useDispatch();
 
   const handleCheck = () => {
-    dispatch(toggleAccount(accountId));
-    console.log(`account is : ${account}`);
+    dispatch(setActiveAccount(accountId));
+    console.log(`account is : ${accountId}`);
   };
 
-  const isActive = account === accountId;
+  const isActive = activeAccountId === accountId;
 
   return (
-    <div className="test">
+    <div className="account-card-wrapper">
       <div className="card-container">
         <div className="card-info">
           <h3>Argent bank checking (x{visite})</h3>
           <p>${balance}</p>
           <p>avalaible balance</p>
         </div>
-
         <i
           className={`fa-solid ${isActive ? "fa-xmark" : "fa-chevron-right"} 
                transition-icon`}
@@ -31,4 +30,4 @@ const AccountCards = ({ accountId, visite, balance }) => {
   );
 };
 
-export default AccountCards;
+export default AccountCard;

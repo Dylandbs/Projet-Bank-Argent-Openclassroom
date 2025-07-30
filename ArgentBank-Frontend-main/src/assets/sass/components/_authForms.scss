@@ -8,12 +8,79 @@
   border-radius: 1rem;
 }
 
+.sign-up-content {
+  box-sizing: border-box;
+  background-color: white;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 1rem;
+
+  @media (max-width: 768px) {
+    width: 300px;
+    margin-bottom: 2rem;
+  }
+}
+
 .sign-in-form {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 300px;
   margin: 0 auto;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+.name-row,
+.password-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.password-row {
+  display: flex;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0;
+
+    .input-wrapper {
+      input {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+.name-row .input-wrapper,
+.password-row .input-wrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+.name-row {
+  display: flex;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0;
+
+    .input-wrapper {
+      margin-bottom: 1rem;
+      input {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  }
 }
 
 .sign-in-button {
@@ -36,7 +103,6 @@
   background-color: #00a566;
 }
 
-/* Styles pour InputField (inclus car utilisé dans le formulaire) */
 .input-wrapper {
   display: flex;
   flex-direction: column;

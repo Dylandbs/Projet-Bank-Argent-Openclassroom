@@ -1,12 +1,35 @@
-# React + Vite
+# Projet Bank Argent - OpenClassrooms
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+![Logo](./img/argentBankLogo.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Application bancaire moderne développée dans le cadre du parcours OpenClassrooms.
+
+## 📌 Description
+
+Bank Argent est une application web simulant les fonctionnalités essentielles d'une banque en ligne :
+- Consultation des comptes
+- Historique des transactions
+- Gestion du profil utilisateur
+
+## ✨ Fonctionnalités
+
+- **Authentification sécurisée**
+- Tableau de bord utilisateur
+- Historique des transactions détaillé
+- Interface responsive (mobile & desktop)
+
+## 🛠 Technologies
+
+- **Frontend**: React.js, Redux, 
+- **Backend**: Node.js, Express
+- **Base de données**: MongoDB
+
+## 🚀 Installation
+
+1. Cloner le dépôt :
+```bash
+git clone https://github.com/Dylandbs/Projet-Bank-Argent-Openclassroom.git
+

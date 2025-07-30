@@ -1,0 +1,256 @@
+.transaction_card_container {
+  width: 82%;
+  margin: auto;
+  padding: 1rem 0;
+  font-size: 1.3rem;
+}
+
+.transaction_card,
+.transaction_main_content {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+
+  :nth-child(1) {
+    text-align: left;
+    padding-left: 0.6rem;
+  }
+
+  :nth-child(2) {
+    text-align: left;
+    padding-left: 2rem;
+  }
+
+  :nth-child(4) {
+    text-align: right;
+    padding-right: 1.4rem;
+  }
+
+  :nth-child(5) {
+    padding-right: 1.2rem;
+  }
+}
+
+.transaction_card {
+  margin-bottom: 0.5rem;
+  p {
+    flex: 1;
+    text-align: center;
+    margin: 0.2rem;
+  }
+}
+
+.transaction_card_icon_placeholder {
+  width: 2rem;
+  flex: none;
+}
+
+.transaction_card_info {
+  background: #42b983;
+  color: #fff;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  &active {
+    margin-bottom: 0;
+  }
+
+  .transaction_main_content {
+    p {
+      flex: 1;
+      text-align: center;
+      margin: 0.6rem 0;
+      text-align: left;
+    }
+
+    :nth-child(1),
+    :nth-child(2) {
+      padding: 0;
+    }
+
+    :nth-child(4),
+    :nth-child(5) {
+      text-align: right;
+    }
+
+    :nth-child(4) {
+      padding-right: 0;
+    }
+
+    :nth-child(5) {
+      text-align: center;
+      padding-left: 2rem;
+      padding-right: 0;
+    }
+
+    .transition-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.5rem;
+      flex: none;
+      text-align: right;
+      padding: 0.7rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, opacity 0.2s ease;
+    }
+  }
+
+  .fa-chevron-right {
+    transform: rotate(0deg);
+  }
+
+  .fa-xmark {
+    transform: rotate(90deg);
+  }
+}
+
+.transaction-details {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  background: #42b983;
+  padding: 1rem;
+  border-radius: 0 0 10px 10px;
+
+  .details-labels,
+  .details-values {
+    p {
+      margin: 0.3rem 0;
+      text-align: left;
+    }
+  }
+  .details-values {
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.note_container,
+.category_container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.3rem 0;
+
+  p {
+    margin: 0;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.2rem;
+    font-size: 0.8rem;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.edite_note,
+.category_edit {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.3rem 0;
+
+  input,
+  select {
+    padding: 0.3rem;
+    border-radius: 4px;
+    border: none;
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.2rem;
+    background: #5c5a5a;
+    border-radius: 5px;
+    padding: 0.3rem;
+  }
+}
+
+.cancel_button i {
+  padding: 0.1rem 0.1rem 0 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .transaction_card_container {
+    width: 90%;
+  }
+
+  .transaction_card,
+  .transaction_main_content {
+    font-size: 0.9rem;
+    padding: 0 0 0 0.3rem;
+
+    p {
+      padding: 0.2rem;
+      margin: 0.1rem;
+    }
+
+    :nth-child(1) {
+      padding-left: 0.6rem;
+    }
+    :nth-child(2) {
+      padding-left: 0rem;
+      padding-right: 1rem;
+    }
+    :nth-child(3) {
+      display: none;
+    }
+    :nth-child(4) {
+      padding-right: 0.3rem;
+    }
+    :nth-child(5) {
+      padding-right: 1.3rem;
+      padding-left: 1rem;
+    }
+  }
+
+  .transaction-details {
+    gap: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+
+    .details-labels {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .details-labels,
+    .details-values {
+      width: 100%;
+    }
+  }
+
+  .edite_note,
+  .category_edit {
+    flex-wrap: wrap;
+
+    input,
+    select {
+      width: 100%;
+      margin-bottom: 0.3rem;
+    }
+  }
+
+  .transaction_main_content {
+    .transition-icon {
+      padding: 0.5rem;
+    }
+  }
+}

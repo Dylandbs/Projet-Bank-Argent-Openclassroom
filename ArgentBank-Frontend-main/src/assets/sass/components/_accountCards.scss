@@ -1,4 +1,4 @@
-.test {
+.account-card-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,6 +41,10 @@
     font-size: 4.5rem;
     cursor: pointer;
     transition: transform 0.3s ease;
+
+    @media (max-width: 768px) {
+      font-size: 3.5rem;
+    }
   }
   .transition-icon {
     transition: transform 0.3s ease, opacity 0.2s ease;

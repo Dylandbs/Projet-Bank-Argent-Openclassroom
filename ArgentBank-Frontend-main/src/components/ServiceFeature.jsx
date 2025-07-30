@@ -4,7 +4,7 @@ const ServiceFeature = ({ contents }) => {
       <img
         className="feature-icon"
         alt="chat-icon"
-        src={content.img}
+        srcSet={content.img}
       />
       <h3 className="feature-item-title">{content.title}</h3>
       <p className="feature-item-description">{content.desciption}</p>

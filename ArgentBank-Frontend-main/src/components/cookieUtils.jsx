@@ -5,7 +5,6 @@ export const SetCookie = (name, value, days = null) => {
     const expires = new Date(Date.now() + days * 864e5).toUTCString();
     cookieValue += `; expires=${expires}`;
   }
-
   document.cookie = cookieValue;
 };
 

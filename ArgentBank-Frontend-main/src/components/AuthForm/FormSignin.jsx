@@ -38,7 +38,7 @@ const FormSignIn = () => {
     e.preventDefault();
     setError("");
 
-    // Field validation
+
     if (!validateFields()) {
       setError("Please fill in all fields");
       return;
@@ -103,7 +103,6 @@ const FormSignIn = () => {
         onChange={(e) => setUsername(e.target.value)}
         input_className={`input-field ${fieldErrors.email ? "error" : ""}`}
         container_className="input-wrapper"
-        error={fieldErrors.email ? "Please enter your email" : null}
       />
       <InputField
         type="password" 
@@ -114,7 +113,6 @@ const FormSignIn = () => {
         onChange={(e) => setPassword(e.target.value)}
         input_className={`input-field ${fieldErrors.password ? "error" : ""}`}
         container_className="input-wrapper"
-        error={fieldErrors.password ? "Please enter your password" : null}
       />
       <CheckboxField
         id="remember-me"

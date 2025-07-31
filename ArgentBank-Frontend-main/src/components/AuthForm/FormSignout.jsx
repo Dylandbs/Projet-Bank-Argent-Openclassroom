@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import InputField from "./InputField";
 import { login, setDataUser } from "../../features/authSlice";
@@ -8,7 +8,7 @@ import { SetCookie } from "../cookieUtils";
 const FormSignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
@@ -26,8 +26,8 @@ const FormSignUp = () => {
       return;
     }
 
-    if (!firstName || !lastName || !username || !email || !password) {
-      setError("Please fill in all required fields");
+    if (!firstName || !lastName || !userName || !email || !password) {
+      setError("Please fill in all fields");
       return;
     }
 
@@ -46,7 +46,7 @@ const FormSignUp = () => {
             password,
             firstName,
             lastName,
-            userName: username,
+            userName
           }),
         }
       );
@@ -121,7 +121,6 @@ const FormSignUp = () => {
           onChange={(e) => setFirstName(e.target.value)}
           input_className="input-field"
           container_className="input-wrapper"
-          required
         />
         <InputField
           type="text"
@@ -132,7 +131,6 @@ const FormSignUp = () => {
           onChange={(e) => setLastName(e.target.value)}
           input_className="input-field"
           container_className="input-wrapper"
-          required
         />
       </div>
       <InputField
@@ -140,11 +138,10 @@ const FormSignUp = () => {
         id="username"
         aria="Username"
         label="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
         input_className="input-field"
         container_className="input-wrapper"
-        required
       />
       <InputField
         type="email"
@@ -155,7 +152,6 @@ const FormSignUp = () => {
         onChange={(e) => setEmail(e.target.value)}
         input_className="input-field"
         container_className="input-wrapper"
-        required
       />
       <div className="password-row">
         <InputField
@@ -167,7 +163,6 @@ const FormSignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
           input_className="input-field"
           container_className="input-wrapper"
-          required
         />
         <InputField
           type="password"
@@ -178,14 +173,13 @@ const FormSignUp = () => {
           onChange={(e) => setConfirmedPassword(e.target.value)}
           input_className="input-field"
           container_className="input-wrapper"
-          required
         />
       </div>
       <button type="submit" className="sign-in-button" disabled={isLoading}>
         {isLoading ? "Loading..." : "Sign Up"}
       </button>
       <p className="sign-up-link">
-        Already have an account? <a href="/Sign_in">Sign In</a>
+        Already have an account? <Link to="/Sign_in">Sign In</Link>
       </p>
     </form>
   );

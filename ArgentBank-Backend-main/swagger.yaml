@@ -119,7 +119,7 @@ paths:
         "401":
           description: Unauthorized
         "404":
-          description: No accounts found
+          description: account not found
         "500":
           description: Internal Server Error
 
@@ -145,7 +145,7 @@ paths:
         "401":
           description: Unauthorized
         "404":
-          description: No transactions found
+          description: transaction not found
         "500":
           description: Internal Server Error
 
